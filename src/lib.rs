@@ -1,4 +1,4 @@
 pub struct Solution;
 
-#[path = "../1.two-sum.rs"]
-mod two_sum;
+// see build.rs
+include!(concat!(env!("OUT_DIR"), "/problems.rs"));
