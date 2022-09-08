@@ -43,7 +43,13 @@ use crate::Solution;
 impl Solution {
     pub fn contains_duplicate(nums: Vec<i32>) -> bool {
         let mut set = std::collections::HashSet::new();
-        nums.iter().any(|&n| !set.insert(n))
+        for n in nums {
+            if set.contains(&n) {
+                return true;
+            }
+            set.insert(n);
+        }
+        false
     }
 }
 // @lc code=end
