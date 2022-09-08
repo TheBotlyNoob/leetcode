@@ -1,6 +1,7 @@
 use std::{env::var, ffi::OsString, fmt::Write, fs};
 
 fn main() {
+    println!("cargo:rerun-if-changed=.");
     let mut out_file = String::new();
     for file in fs::read_dir(var("CARGO_MANIFEST_DIR").unwrap()).unwrap() {
         let path = file.unwrap().path();
