@@ -46,11 +46,14 @@ use crate::Solution;
 
 // @lc code=start
 impl Solution {
-    pub fn is_anagram(s: String, t: String) -> bool {
-        let mut s = s.into_bytes();
-        let mut t = t.into_bytes();
-        s.sort();
-        t.sort();
+    pub fn is_anagram(mut s: String, mut t: String) -> bool {
+        if s.len() != t.len() {
+            return false;
+        }
+        let s = unsafe { s.as_bytes_mut() };
+        let t = unsafe { t.as_bytes_mut() };
+        s.sort_unstable();
+        t.sort_unstable();
         s == t
     }
 }
