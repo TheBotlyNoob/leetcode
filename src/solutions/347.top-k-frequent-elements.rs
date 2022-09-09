@@ -51,11 +51,7 @@ impl Solution {
         }
         let mut map = map.iter().collect::<Vec<_>>();
         map.sort_unstable_by_key(|(_, v)| std::cmp::Reverse(*v));
-        map.iter()
-            .take(k as usize)
-            .map(|(k, _)| k)
-            .map(|k| **k)
-            .collect()
+        map.iter().take(k as usize).map(|(k, _)| **k).collect()
     }
 }
 // @lc code=end
